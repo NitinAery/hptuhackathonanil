@@ -262,6 +262,76 @@ ICICI Bank Team`,
     },
     expectedRisk: "low",
   },
+  {
+    id: "gmail-incometax-refund",
+    senderName: "Income Tax Department India",
+    senderEmail: "refunds@incometax-efiling-portal.top",
+    replyTo: "tax.refund.settlement@gmail.com",
+    recipientEmail: "user@gmail.com",
+    subject: "Tax Refund Order: Refund of INR 24,850.00 approved for AY 2026-27",
+    date: "25 Oct, 1:15 PM",
+    timestamp: "25 Oct",
+    snippet: "Your income tax refund of Rs 24,850 has been processed. Confirm your bank account details within 48 hours...",
+    bodyText: `Dear Taxpayer,
+
+An Income Tax Refund of INR 24,850.00 has been sanctioned for Assessment Year 2026-27 under Section 143(1).
+
+Due to a discrepancy in your bank account details on the e-Filing portal, direct transfer could not be completed.
+
+Verify your bank details and submit your PAN credentials immediately to credit funds into your account:
+https://eportal.incometax.gov.in/iec/foservices/refund-claim
+
+Note: Unclaimed refunds will be deposited with the treasury after 48 hours.
+
+Central Processing Centre (CPC)
+Income Tax Department, Bengaluru`,
+    headers: {
+      "From": '"Income Tax Department India" <refunds@incometax-efiling-portal.top>',
+      "Reply-To": "tax.refund.settlement@gmail.com",
+      "Return-Path": "<bounces@incometax-efiling-portal.top>",
+      "Authentication-Results": "spf=fail; dkim=none; dmarc=fail",
+    },
+    authResults: {
+      spf: "fail",
+      dkim: "none",
+      dmarc: "fail",
+    },
+    expectedRisk: "high",
+  },
+  {
+    id: "gmail-hdfc-rewards-scam",
+    senderName: "HDFC Bank Rewards Desk",
+    senderEmail: "rewards-claim@hdfc-point-redemption.xyz",
+    replyTo: "hdfc.rewards.help@gmail.com",
+    recipientEmail: "user@gmail.com",
+    subject: "Final Notice: Your 9,840 HDFC Reward Points (Rs 4,920) expire tonight",
+    date: "24 Oct, 7:40 PM",
+    timestamp: "24 Oct",
+    snippet: "Dear Cardholder, your accumulated 9,840 reward points are scheduled to expire at midnight. Convert into cash...",
+    bodyText: `Dear HDFC Bank Cardholder,
+
+Your 9,840 accumulated reward points (Cash equivalent: Rs 4,920.00) on Credit Card ending with 4921 are expiring tonight at 11:59 PM.
+
+Convert your points into immediate bank account credit or Amazon vouchers before expiry:
+https://www.hdfcbank.com/rewards-points-redemption
+
+Enter your Customer ID and OTP to confirm redemption.
+
+Sincerely,
+HDFC Bank Credit Cards & Rewards Team`,
+    headers: {
+      "From": '"HDFC Bank Rewards Desk" <rewards-claim@hdfc-point-redemption.xyz>',
+      "Reply-To": "hdfc.rewards.help@gmail.com",
+      "Return-Path": "<mailer@hdfc-point-redemption.xyz>",
+      "Authentication-Results": "spf=fail; dkim=fail; dmarc=fail",
+    },
+    authResults: {
+      spf: "fail",
+      dkim: "fail",
+      dmarc: "fail",
+    },
+    expectedRisk: "high",
+  },
 ];
 
 /**
@@ -482,3 +552,4 @@ export function auditEmailSecurityErrors(email: MailMessage): EmailErrorAuditRes
     safeActionGuidance,
   };
 }
+
